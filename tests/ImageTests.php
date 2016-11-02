@@ -121,7 +121,7 @@ class ImageTests extends \PHPUnit_Framework_TestCase
     public function testCustomCacheSystem()
     {
         $image = $this->open('monalisa.jpg');
-        $cache = $this->getMock('Gregwar\Cache\CacheInterface');
+        $cache = $this->createMock('Gregwar\Cache\CacheInterface');
         $image->setCacheSystem($cache);
         $this->assertTrue($image->getCacheSystem() instanceof Gregwar\Cache\CacheInterface);
     }
