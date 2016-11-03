@@ -116,8 +116,14 @@ class Imagick extends Common{
 		$this->doSave();
 
 		// remove alpha channel
-		$this->resource->setImageBackgroundColor('rgb(255,255,255)');
-		$this->resource->setImageAlphaChannel(ImageMagick::ALPHACHANNEL_DEACTIVATE);
+		try {
+			if ($this->resource->getImageAlphaChannel()) {
+				$this->resource->setImageBackgroundColor('white');
+				$this->resource->setImageAlphaChannel(ImageMagick::ALPHACHANNEL_DEACTIVATE);
+			}
+		} catch (\Exception $e) {
+			// ignore error and continue.
+		}
 
 		$this->resource->setCompression(ImageMagick::COMPRESSION_JPEG);
 		$this->resource->setImageCompressionQuality($quality);
