@@ -130,7 +130,7 @@ class Imagick extends Common{
 	 */
 	public function crop($x, $y, $width, $height){
 		$this->resource->cropImage($width, $height, $x, $y);
-		return this;
+		return $this;
 	}
 
 	/**
