@@ -79,7 +79,12 @@ class Imagick extends Common{
 	public function saveGif($file){
 		$this->doSave();
 		$this->resource->setImageFormat("gif");
-		$this->resource->writeImage($file);
+
+		if (null == $file) {
+			echo $this->resource->getImageBlob();
+		} else {
+			$this->resource->writeImage($file);
+		}
 
 		return $this;
 	}
@@ -92,7 +97,12 @@ class Imagick extends Common{
 	public function savePng($file){
 		$this->doSave();
 		$this->resource->setImageFormat("png");
-		$this->resource->writeImage($file);
+
+		if (null == $file) {
+			echo $this->resource->getImageBlob();
+		} else {
+			$this->resource->writeImage($file);
+		}
 
 		return $this;
 	}
@@ -113,7 +123,12 @@ class Imagick extends Common{
 		$this->resource->setCompression(ImageMagick::COMPRESSION_JPEG);
 		$this->resource->setImageCompressionQuality($quality);
 		$this->resource->setImageFormat("jpeg");
-		$this->resource->writeImage($file);
+
+		if (null == $file) {
+			echo $this->resource->getImageBlob();
+		} else {
+			$this->resource->writeImage($file);
+		}
 
 		return $this;
 	}
