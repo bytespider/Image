@@ -138,6 +138,11 @@ class Imagick extends Common{
 		return $this;
 	}
 
+	public function clear(){
+		$this->resource->clear();
+		return $this;
+	}
+
 	/**
 	 * Crops the image
 	 *
