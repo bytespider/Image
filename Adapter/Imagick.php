@@ -489,7 +489,8 @@ class Imagick extends Common{
 	 * Creating an image using $data
 	 */
 	protected function createImageFromData($data){
-		// TODO: Implement createImageFromData() method.
+		$this->resource = new ImageMagick();
+		$this->resource->readImageBlob($data);
 		return $this;
 	}
 
